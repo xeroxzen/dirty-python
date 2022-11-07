@@ -24,8 +24,8 @@ def retrieve_files():
         try:
             for root, dirs, files in os.walk(directory):
                 for file in files:
-                    # If the file is a PDF, DOCX, TXT, XLSX, PPTX, JPG, PNG, MP3, MP4, MOV, AVI, MKV, or WAV file, copy it to the "files" folder
-                    if file.endswith('.pdf') or file.endswith('.docx') or file.endswith('.txt') or file.endswith('.xlsx') or file.endswith('.pptx') or file.endswith('.jpg') or file.endswith('.png') or file.endswith('.mp3') or file.endswith('.mp4') or file.endswith('.mov') or file.endswith('.avi') or file.endswith('.mkv') or file.endswith('.wav'):
+                    # If the file is a PDF, DOCX, TXT, XLSX, PPTX, JPG, PNG file, copy it to the "files" folder
+                    if file.endswith('.pdf') or file.endswith('.docx') or file.endswith('.txt') or file.endswith('.xlsx') or file.endswith('.pptx') or file.endswith('.jpg') or file.endswith('.png') or file.endswith('.doc'):
                         shutil.copy(os.path.join(root, file), 'files')
                         count += 1
                         # Print the file name and the directory it was copied from
