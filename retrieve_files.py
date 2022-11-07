@@ -20,15 +20,18 @@ def retrieve_files():
 
     # Loop through the directories
     for directory in directories:
-        # Loop through the files in the directory
-        try: 
-            for file in os.listdir(directory):
-                # If the file is a .docx, .pdf, .txt, .xlsx, .jpg, .jpeg, .png file, copy it to the "files" folder
-                if file.endswith('.docx') or file.endswith('.pdf') or file.endswith('.txt') or file.endswith('.xlsx') or file.endswith('.jpg') or file.endswith('.jpeg') or file.endswith('.png'):
-                    shutil.copy(os.path.join(directory, file), 'files')
-                    count += 1
+        # Loop through the files in the directory and their subsequent subdirectories no matter how deep their location is
+        try:
+            for root, dirs, files in os.walk(directory):
+                for file in files:
+                    # If the file is a PDF, DOCX, TXT, XLSX, PPTX, JPG, PNG, MP3, MP4, MOV, AVI, MKV, or WAV file, copy it to the "files" folder
+                    if file.endswith('.pdf') or file.endswith('.docx') or file.endswith('.txt') or file.endswith('.xlsx') or file.endswith('.pptx') or file.endswith('.jpg') or file.endswith('.png') or file.endswith('.mp3') or file.endswith('.mp4') or file.endswith('.mov') or file.endswith('.avi') or file.endswith('.mkv') or file.endswith('.wav'):
+                        shutil.copy(os.path.join(root, file), 'files')
+                        count += 1
+                        # Print the file name and the directory it was copied from
+                        print(f"Copying {file} from {root}")
         except:
-            print("Error: ", directory)
+            print('Error: Could not access directory')
 
     print(f'{count} files were copied to the "files" folder.')
 
