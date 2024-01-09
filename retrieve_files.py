@@ -12,9 +12,9 @@ import timeit
 def retrieve_files():
     """Retrieve files from a directory"""
     count = 0
-    # Directories to look at are Desktop, Documents, Downloads, Pictures, Music, Videos
+    # Directories to look at are Desktop, Documents, Downloads, Pictures, Music, Videos, Workspace, Personal
     directories = [os.path.join(os.path.expanduser('~'), 'Desktop'), os.path.join(os.path.expanduser('~'), 'Documents'), os.path.join(os.path.expanduser('~'), 'Downloads'), os.path.join(os.path.expanduser('~'), 'Pictures'), os.path.join(os.path.expanduser('~'), 'Music'), os.path.join(os.path.expanduser('~'), 'Videos'), \
-        os.path.join(os.path.expanduser('~'), 'OneDrive'), os.path.join(os.path.expanduser('~'), 'Movies')]
+        os.path.join(os.path.expanduser('~'), 'OneDrive'), os.path.join(os.path.expanduser('~'), 'Movies'), os.path.join(os.path.expanduser('~'), 'Personal'), os.path.join(os.path.expanduser('~'), 'Workspace')]
 
     # Create a folder called "files" in the current directory
     if not os.path.exists('files'):
