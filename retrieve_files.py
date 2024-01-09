@@ -8,7 +8,6 @@ import os
 import shutil
 import timeit   
 
-
 def retrieve_files():
     """Retrieve files from a directory"""
     count = 0
